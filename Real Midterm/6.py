@@ -10,4 +10,4 @@ for i in range(n):
             d['gg'] += 1
         elif s[i].isdigit():
             d['num'] += 1
-print(d)
+print(d['up'], d['gg'], d['num'], sep='\n')
