@@ -36,7 +36,6 @@ playerStand = [pygame.image.load('Ninja Sprites/Idle__000.png'),
                pygame.image.load('Ninja Sprites/Idle__008.png'),
                pygame.image.load('Ninja Sprites/Idle__009.png')]
 
-
 bg = pygame.image.load('Ninja Sprites/bgg.jpg')
 
 clock = pygame.time.Clock()
@@ -53,19 +52,6 @@ jump_cnt = 10
 left, right = False, False
 justStand = True
 animCount = 0
-
-
-class strela():
-    def __init__(self, x, y, radius, color, facing):
-        self.x = x
-        self.y = y
-        self.radius = radius
-        self.color = color
-        self.facing = facing
-        self.velocity = 8 * facing
-
-    def draw(self, win):
-        pygame.image.load('Ninja Sprites/Kunai.png')
 
 
 def draw_window():
@@ -87,6 +73,7 @@ def draw_window():
 
     pygame.display.update()
 
+
 run = True
 while run:
     clock.tick(30)
@@ -97,13 +84,7 @@ while run:
         if i.type == pygame.QUIT:
             run = False
 
-    for i in kunais:
-        if 0 < x < 1300:
-            i.x += i.velocity
-        else:
-            i.pop(kunais.index(i))
-
-    # roles of numpads
+    # roles of buttons
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_LEFT] and x > 10:
@@ -117,7 +98,7 @@ while run:
     else:
         left = False
         right = False
-        #animCount = 0
+        # animCount = 0
 
     if not(is_jump):
         # if keys[pygame.K_UP] and y > 10:
