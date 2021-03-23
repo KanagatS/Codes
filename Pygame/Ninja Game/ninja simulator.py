@@ -3,40 +3,40 @@ import pygame
 win = pygame.display.set_mode((1300, 650))
 pygame.display.set_caption('First Game')
 
-walkRight = [pygame.image.load('Ninja Game/Ninja Sprites/Run__000.png'),
-             pygame.image.load('Ninja Game/Ninja Sprites/Run__001.png'),
-             pygame.image.load('Ninja Game/Ninja Sprites/Run__002.png'),
-             pygame.image.load('Ninja Game/Ninja Sprites/Run__003.png'),
-             pygame.image.load('Ninja Game/Ninja Sprites/Run__004.png'),
-             pygame.image.load('Ninja Game/Ninja Sprites/Run__005.png'),
-             pygame.image.load('Ninja Game/Ninja Sprites/Run__006.png'),
-             pygame.image.load('Ninja Game/Ninja Sprites/Run__007.png'),
-             pygame.image.load('Ninja Game/Ninja Sprites/Run__008.png'),
-             pygame.image.load('Ninja Game/Ninja Sprites/Run__009.png')]
+walkRight = [pygame.image.load('Ninja Sprites/Run__000.png'),
+             pygame.image.load('Ninja Sprites/Run__001.png'),
+             pygame.image.load('Ninja Sprites/Run__002.png'),
+             pygame.image.load('Ninja Sprites/Run__003.png'),
+             pygame.image.load('Ninja Sprites/Run__004.png'),
+             pygame.image.load('Ninja Sprites/Run__005.png'),
+             pygame.image.load('Ninja Sprites/Run__006.png'),
+             pygame.image.load('Ninja Sprites/Run__007.png'),
+             pygame.image.load('Ninja Sprites/Run__008.png'),
+             pygame.image.load('Ninja Sprites/Run__009.png')]
 
-walkLeft = [pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_000.png'),
-            pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_001.png'),
-            pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_002.png'),
-            pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_003.png'),
-            pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_004.png'),
-            pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_005.png'),
-            pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_006.png'),
-            pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_007.png'),
-            pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_008.png'),
-            pygame.image.load('Ninja Game/Ninja Sprites/RunLeft/Run_009.png'), ]
+walkLeft = [pygame.image.load('Ninja Sprites/RunLeft/Run_000.png'),
+            pygame.image.load('Ninja Sprites/RunLeft/Run_001.png'),
+            pygame.image.load('Ninja Sprites/RunLeft/Run_002.png'),
+            pygame.image.load('Ninja Sprites/RunLeft/Run_003.png'),
+            pygame.image.load('Ninja Sprites/RunLeft/Run_004.png'),
+            pygame.image.load('Ninja Sprites/RunLeft/Run_005.png'),
+            pygame.image.load('Ninja Sprites/RunLeft/Run_006.png'),
+            pygame.image.load('Ninja Sprites/RunLeft/Run_007.png'),
+            pygame.image.load('Ninja Sprites/RunLeft/Run_008.png'),
+            pygame.image.load('Ninja Sprites/RunLeft/Run_009.png'), ]
 
-playerStand = [pygame.image.load('Ninja Game/Ninja Sprites/Idle__000.png'),
-               pygame.image.load('Ninja Game/Ninja Sprites/Idle__001.png'),
-               pygame.image.load('Ninja Game/Ninja Sprites/Idle__002.png'),
-               pygame.image.load('Ninja Game/Ninja Sprites/Idle__003.png'),
-               pygame.image.load('Ninja Game/Ninja Sprites/Idle__004.png'),
-               pygame.image.load('Ninja Game/Ninja Sprites/Idle__005.png'),
-               pygame.image.load('Ninja Game/Ninja Sprites/Idle__006.png'),
-               pygame.image.load('Ninja Game/Ninja Sprites/Idle__007.png'),
-               pygame.image.load('Ninja Game/Ninja Sprites/Idle__008.png'),
-               pygame.image.load('Ninja Game/Ninja Sprites/Idle__009.png')]
+playerStand = [pygame.image.load('Ninja Sprites/Idle__000.png'),
+               pygame.image.load('Ninja Sprites/Idle__001.png'),
+               pygame.image.load('Ninja Sprites/Idle__002.png'),
+               pygame.image.load('Ninja Sprites/Idle__003.png'),
+               pygame.image.load('Ninja Sprites/Idle__004.png'),
+               pygame.image.load('Ninja Sprites/Idle__005.png'),
+               pygame.image.load('Ninja Sprites/Idle__006.png'),
+               pygame.image.load('Ninja Sprites/Idle__007.png'),
+               pygame.image.load('Ninja Sprites/Idle__008.png'),
+               pygame.image.load('Ninja Sprites/Idle__009.png')]
 
-bg = pygame.image.load('Ninja Game/Ninja Sprites/bgg.jpg')
+bg = pygame.image.load('Ninja Sprites/bgg.jpg')
 
 clock = pygame.time.Clock()
 
