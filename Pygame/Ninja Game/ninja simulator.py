@@ -77,7 +77,7 @@ def draw_window():
 run = True
 while run:
     clock.tick(30)
-    pygame.time.delay(50)
+    pygame.time.delay(10)
 
     # termination condition
     for i in pygame.event.get():
