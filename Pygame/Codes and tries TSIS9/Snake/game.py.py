@@ -28,7 +28,6 @@ class Food():
     def __init__(self):
         self.x = random.randint(32, WIDTH - 32 - 35)
         self.y = random.randint(32, HEIGHT - 32 - 35)
-        # self.image = pygame.image.load('apple.png')
         self.image = random.choice(FRUITS)
         self.image = pygame.transform.scale(self.image, (35, 35))
 
