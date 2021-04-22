@@ -4,161 +4,141 @@ pygame.init()
 
 pygame.display.set_caption('Paint Clone for TSIS9')
 
-WIDTH, HEIGHT = 1700, 900
+WIDTH, HEIGHT = 1600, 900
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
+FONT = pygame.font.SysFont('Arial', 30)
+
 BLACK = (0, 0, 0)
-BROWN = (146, 46, 0)
 RED = (255, 0, 0)
-ORANGE = (255, 141, 0)
 YELLOW = (255, 255, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
-PURPLE = (200, 0, 200)
-GREY = (180, 180, 180)
 WHITE = (255, 255, 255)
 
-FONT = pygame.font.SysFont('Arial', 24)
+
+def save_picture():
+    pygame.image.save(WIN, 'picture.jpg')
 
 
-def draw_circle():
-    pass
+def draw_line(screen, start, end, width, color):
+    x1, x2 = start[0], end[0]
+    y1, y2 = start[1], end[1]
+
+    dx, dy = abs(x1 - x2), abs(y1 - y2)
+
+    A = y2 - y1
+    B = x1 - x2
+    C = x2 * y1 - x1 * y2
+
+    if dx > dy:
+        if x1 > x2:
+            x1, x2 = x2, x1
+            y1, y2 = y2, y1
+
+        for x in range(x1, x2):
+            y = (-C - A * x) / B
+            pygame.draw.circle(screen, color, (x, y), width)
+    else:
+        if y1 > y2:
+            x1, x2 = x2, x1
+            y1, y2 = y2, y1
+        for y in range(y1, y2):
+            x = (-C - B * y) / A
+            pygame.draw.circle(screen, color, (x, y), width)
 
 
-def draw_rect():
-    pass
-
-
-def buttons_click(click, colors):
-    COLOR = None
-
-    mx, my = pygame.mouse.get_pos()
-
-    if black.collidepoint((mx, my)) and click:
-        COLOR = BLACK
-    elif brown.collidepoint((mx, my)) and click:
-        COLOR = BROWN
-    elif red.collidepoint((mx, my)) and click:
-        COLOR = RED
-    elif orange.collidepoint((mx, my)) and click:
-        COLOR = ORANGE
-    elif yellow.collidepoint((mx, my)) and click:
-        COLOR = YELLOW
-    elif green.collidepoint((mx, my)) and click:
-        COLOR = GREEN
-    elif brown.collidepoint((mx, my)) and click:
-        COLOR = BROWN
-    elif blue.collidepoint((mx, my)) and click:
-        COLOR = BLUE
-    elif purple.collidepoint((mx, my)) and click:
-        COLOR = PURPLE
-    elif grey.collidepoint((mx, my)) and click:
-        COLOR = GREY
-    elif white.collidepoint((mx, my)) and click:
-        COLOR = WHITE
-
-    elif rectangle.collidepoint((mx, my)) and click:
-        draw_rect()
-    elif circle.collidepoint((mx, my)) and click:
-        draw_circle()
-    elif eraser.collidepoint((mx, my)) and click:
-        COLOR = WHITE
-
-    if COLOR != None:
-        print(COLOR)
-
-
-def color_buttons():
-    black = pygame.Rect(1600, 0, 100, 60)
-    brown = pygame.Rect(1600, 60, 100, 60)
-    red = pygame.Rect(1600, 120, 100, 60)
-    orange = pygame.Rect(1600, 180, 100, 60)
-    yellow = pygame.Rect(1600, 240, 100, 60)
-    green = pygame.Rect(1600, 300, 100, 60)
-    blue = pygame.Rect(1600, 360, 100, 60)
-    purple = pygame.Rect(1600, 420, 100, 60)
-    grey = pygame.Rect(1600, 480, 100, 60)
-    white = pygame.Rect(1600, 540, 100, 60)
-
-    rectangle = pygame.Rect(1600, 600, 100, 60)
-    circle = pygame.Rect(1600, 660, 100, 60)
-    eraser = pygame.Rect(1600, 720, 100, 60)
-
-    pygame.draw.rect(WIN, BLACK, black)
-    pygame.draw.rect(WIN, BROWN, brown)
-    pygame.draw.rect(WIN, RED, red)
-    pygame.draw.rect(WIN, ORANGE, orange)
-    pygame.draw.rect(WIN, YELLOW, yellow)
-    pygame.draw.rect(WIN, GREEN, green)
-    pygame.draw.rect(WIN, BLUE, blue)
-    pygame.draw.rect(WIN, PURPLE, purple)
-    pygame.draw.rect(WIN, GREY, grey)
-    pygame.draw.rect(WIN, WHITE, white)
-
-    WIN.blit(FONT.render('Rect', True, BLACK), (1610, 615))
-    WIN.blit(FONT.render('Circ', True, BLACK), (1610, 675))
-    WIN.blit(FONT.render('Eraser', True, BLACK), (1610, 735))
-
-    pygame.draw.rect(WIN, BLUE, [1629, 811, 38, 38])
-
-
-def draw_menu(clear):
-    WIN.fill(WHITE)
+def draw_menu(open, color, radius):
     pygame.draw.rect(WIN, BLACK, [0, 0, WIDTH, HEIGHT], 3)  # BORDER
-    pygame.draw.line(WIN, BLACK, (1598, 0), (1598, 900), 3)
 
-    for y in range(0, 760 + 1, 60):  # FRAMES OF COLORS
-        pygame.draw.rect(WIN, BLACK, [1600, y, 100, 61], 2)
+    if open:
+        pygame.draw.rect(WIN, BLACK, [1440, 0, 160, 408], 3)
 
-    pygame.draw.rect(WIN, BLACK, [1628, 810, 40, 40], 2)  # CURRENT COLOR
+        WIN.blit(FONT.render('1 - ', True, BLACK), (1450, 5))
+        WIN.blit(FONT.render('2 - ', True, BLACK), (1450, 45))
+        WIN.blit(FONT.render('3 - ', True, BLACK), (1450, 85))
+        WIN.blit(FONT.render('4 - ', True, BLACK), (1450, 125))
+        WIN.blit(FONT.render('5 - ', True, BLACK), (1450, 165))
+        WIN.blit(FONT.render('E - Eraser', True, BLACK), (1450, 205))
+        WIN.blit(FONT.render('R - ', True, BLACK), (1450, 245))
+        WIN.blit(FONT.render('C - ', True, BLACK), (1450, 285))
+        WIN.blit(FONT.render('- color ', True, BLACK), (1500, 325))
 
-    if clear:
-        WIN.fill(WHITE)
+        pygame.draw.rect(WIN, BLACK, [1500, 5, 50, 30])
+        pygame.draw.rect(WIN, RED, [1500, 45, 50, 30])
+        pygame.draw.rect(WIN, GREEN, [1500, 85, 50, 30])
+        pygame.draw.rect(WIN, BLUE, [1500, 125, 50, 30])
+        pygame.draw.rect(WIN, YELLOW, [1500, 165, 50, 30])
+        pygame.draw.rect(WIN, BLACK, [1500, 245, 50, 30], 3)
+        pygame.draw.circle(WIN, BLACK, (1520, 304), 15, 3)
 
-    color_buttons()
+        pygame.draw.rect(WIN, BLACK, [1448, 323, 43, 43], 3)
+        pygame.draw.rect(WIN, color, [1450, 325, 40, 40])
 
-
-def roundline(srf, color, start, end, radius=1):
-    dx = end[0]-start[0]
-    dy = end[1]-start[1]
-    distance = max(abs(dx), abs(dy))
-    for i in range(distance):
-        x = int(start[0]+float(i)/distance*dx)
-        y = int(start[1]+float(i)/distance*dy)
-        pygame.display.update(pygame.draw.circle(srf, color, (x, y), radius))
+        WIN.blit(FONT.render('R = ' + str(radius), True, BLACK), (1450, 370))
 
 
 def main():
-    run = True
-    click = False
-    clear = False
-    draw_on = False
+    run, draw_on = True, False
+    open = False
     last_pos = (0, 0)
+    radius = 10
+    color = BLACK
+
+    WIN.fill(WHITE)
+
     while run:
+        mx, my = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     run = False
+                    save_picture()
+                elif event.key == pygame.K_o:  # HINT
+                    open = not open
+
+                elif event.key == pygame.K_q:  # CLEAR
+                    WIN.fill(WHITE)
+
+                elif event.key == pygame.K_e:  # ERASER
+                    color = WHITE
+                elif event.key == pygame.K_1:
+                    color = BLACK
+                elif event.key == pygame.K_2:
+                    color = RED
+                elif event.key == pygame.K_3:
+                    color = GREEN
+                elif event.key == pygame.K_4:
+                    color = BLUE
+                elif event.key == pygame.K_5:
+                    color = YELLOW
+
+                elif event.key == pygame.K_UP and radius < 30:
+                    radius += 1
+                elif event.key == pygame.K_DOWN and radius >= 3:
+                    radius -= 1
+
+                elif event.key == pygame.K_r:
+                    pygame.draw.rect(WIN, color, [mx, my, radius + 200, radius + 100], 4)
                 elif event.key == pygame.K_c:
-                    clear = True
+                    pygame.draw.circle(WIN, color, (mx, my), radius + 50, 4)
+
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                click = True
-                pygame.draw.circle(WIN, BLACK, event.pos, 10)
+                pygame.draw.circle(WIN, color, event.pos, radius)
+                draw_on = True
+
             elif event.type == pygame.MOUSEBUTTONUP:
                 draw_on = False
+
             elif event.type == pygame.MOUSEMOTION:
                 if draw_on:
-                    pygame.draw.circle(WIN, BLACK, event.pos, 10)
-                    roundline(WIN, BLACK, event.pos, last.pos, 10)
+                    draw_line(WIN, last_pos, event.pos, radius, color)
                 last_pos = event.pos
 
-        draw_menu(clear)
+        draw_menu(open, color, radius)
         pygame.display.update()
-        click = False
-        clear = False
-
     pygame.quit()
 
 

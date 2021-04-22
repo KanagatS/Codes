@@ -1,10 +1,10 @@
 import pygame
-import os
+from os import system
 import time
 
 pygame.init()
 
-pygame.display.set_caption('MENU')
+pygame.display.set_caption('Snake Game Menu')
 
 WIDTH, HEIGHT = 800, 800
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -14,21 +14,12 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 
-BG = pygame.image.load('bg.jpg')
-BG = pygame.transform.scale(BG, (WIDTH, HEIGHT))
-
-SNAKE_HEAD = pygame.image.load('snake_head.png')
-
 ARROW = pygame.image.load('arrow.png')
 ARROW = pygame.transform.rotate(ARROW, 90)
 
 FONT = pygame.font.SysFont('Arial', 50)
 FONT_small = pygame.font.SysFont('Arial', 35)
 FONT_verysmall = pygame.font.SysFont('Arial', 22)
-
-# EASYLEVEL = pygame.image.load('easy.jpg')
-# MEDUIMLEVEL = pygame.image.load('medium.jpg')
-# HARDLEVEL = pygame.image.load('hard.jpg')
 
 
 def menu_functions(click, single, multi):
@@ -42,74 +33,55 @@ def menu_functions(click, single, multi):
 
     if easy_level_button.collidepoint((mx, my)) and click:
         easy = True
-
-    elif medium_level_button.collidepoint((mx, my)) and click:
+    if medium_level_button.collidepoint((mx, my)) and click:
         medium = True
-
-    elif hard_level_button.collidepoint((mx, my)) and click:
+    if hard_level_button.collidepoint((mx, my)) and click:
         hard = True
 
     if single:
         if easy:
-            os.system('easy_single.py')
+            system('easy_single.py')
         elif medium:
-            os.system('medium_single.py')
+            system('medium_single.py')
         elif hard:
-            os.system("hard_single.py")
+            system("hard_single.py")
 
     elif multi:
         if easy:
             os.system('easy_multi.py')
         elif medium:
-            time.sleep(0.5)
             os.system("medium_multi.py")
         elif hard:
             os.system("hard_multi.py")
 
 
 def draw_menu(single, multi):
-    WIN.blit(BG, (0, 0))
+    WIN.fill((128, 128, 128))
 
-    CHOOSE_MODE = FONT.render('CHOOSE GAME MODE', True, BLACK)
-    SINGLEPLAYER = FONT_small.render('SINGLE PLAYER', True, BLACK)
-    MULTIPLAYER = FONT_small.render('MULTI PLAYER', True, BLACK)
-    CHOOSE_LEVEL = FONT.render('CHOOSE LEVEL', True, BLACK)
+    CHOOSE_MODE = FONT.render('GAME MODE', True, BLACK)
+    SINGLEPLAYER = FONT_small.render('SINGLE', True, BLACK)
+    MULTIPLAYER = FONT_small.render('MULTI', True, BLACK)
+    CHOOSE_LEVEL = FONT.render('LEVEL', True, BLACK)
 
-    WIN.blit(CHOOSE_MODE, (130, 130))
-    WIN.blit(SINGLEPLAYER, (80, 260))
-    WIN.blit(MULTIPLAYER, (480, 260))
-    WIN.blit(CHOOSE_LEVEL, (210, 400))
+    WIN.blit(CHOOSE_MODE, (230, 130))
+    WIN.blit(SINGLEPLAYER, (150, 260))
+    WIN.blit(MULTIPLAYER, (550, 260))
+    WIN.blit(CHOOSE_LEVEL, (290, 400))
 
-    WIN.blit(SNAKE_HEAD, (60, 180))
-    WIN.blit(SNAKE_HEAD, (670, 180))
-    WIN.blit(SNAKE_HEAD, (700, 180))
-
-    # Frames around the inscription
     pygame.draw.rect(WIN, YELLOW, [60, 250, 310, 60], 3)
     pygame.draw.rect(WIN, YELLOW, [450, 250, 310, 60], 3)
 
-    pygame.draw.rect(WIN, YELLOW, [60, 500, 175, 175], 3)  # EASY MAP PICTURE
-    # MEDIUM MAP PICTURE
+    pygame.draw.rect(WIN, YELLOW, [60, 500, 175, 175], 3)
     pygame.draw.rect(WIN, YELLOW, [313, 500, 175, 175], 3)
-    pygame.draw.rect(WIN, YELLOW, [565, 500, 175, 175], 3)  # HARD MAP PICTURE
+    pygame.draw.rect(WIN, YELLOW, [565, 500, 175, 175], 3)
 
     EASY = FONT_small.render('EASY', True, WHITE)
-    EASY_text = FONT_verysmall.render('Free Field, Speed - 5', True, WHITE)
-
     MEDIUM = FONT_small.render('MEDIUM', True, WHITE)
-    MEDIUM_text = FONT_verysmall.render('Borders, Speed - 7', True, WHITE)
-
     HARD = FONT_small.render('HARD', True, WHITE)
-    HARD_text = FONT_verysmall.render('Labirint, Speed - 8', True, WHITE)
 
-    WIN.blit(EASY, (100, 685))
-    WIN.blit(EASY_text, (45, 730))
-
-    WIN.blit(MEDIUM, (330, 685))
-    WIN.blit(MEDIUM_text, (308, 730))
-
-    WIN.blit(HARD, (605, 685))
-    WIN.blit(HARD_text, (560, 730))
+    WIN.blit(EASY, (100, 560))
+    WIN.blit(MEDIUM, (330, 560))
+    WIN.blit(HARD, (605, 560))
 
     if single:
         WIN.blit(ARROW, (170, 320))
@@ -145,5 +117,4 @@ def main():
     pygame.quit()
 
 
-if __name__ == '__main__':
-    main()
+main()
