@@ -21,8 +21,8 @@ FONT = pygame.font.SysFont('Courier', 35)
 FONT_2 = pygame.font.SysFont('Arial', 48)
 
 
-pygame.mixer.music.load('bg.mp3')
-pygame.mixer.music.play(-1)
+# pygame.mixer.music.load('bg.mp3') 
+# pygame.mixer.music.play(-1)
 
 eaten = pygame.mixer.Sound('apple.wav')
 end = pygame.mixer.Sound('end.wav')
