@@ -21,26 +21,31 @@ FONT = pygame.font.SysFont('Courier', 35)
 FONT_2 = pygame.font.SysFont('Arial', 48)
 
 
-# pygame.mixer.music.load('bg.mp3') 
+# pygame.mixer.music.load('bg.mp3')
 # pygame.mixer.music.play(-1)
 
 eaten = pygame.mixer.Sound('apple.wav')
 end = pygame.mixer.Sound('end.wav')
 
-
 FPS = 60
 VEL = 5
 
-# area1 = random.randint(32, 800-32-35)
-# area2 = random.randint(a, b)
-# area3 = random.randint(, )
+area1y = random.randint(32, 200 - 35)
+area2y = random.randint(400 + 35, 600-35)
+area3y = random.randint(600 + 35, 800-35-35)
+
+areasy = []
+areasy.append(area1y)
+areasy.append(area2y)
+areasy.append(area3y)
 
 
 class Food():
     def __init__(self):
         self.x = random.randint(32, WIDTH - 32 - 35)
-        self.y = random.randint(32, HEIGHT - 32 - 35)
-        self.image = pygame.image.load('apple.png')
+        self.y = random.choice(areasy)
+        self.image = pygame.transform.scale(
+            pygame.image.load("apple.png"), (30, 30))
         self.image = pygame.transform.scale(self.image, (35, 35))
 
     def draw(self):
@@ -89,126 +94,6 @@ class Snake():
         self.is_add = False
 
 
-def in_wall():
-    # if (32 < food.x < WIDTH - 32 - 35) and (32 < food.y < HEIGHT - 32 - 35):
-    if 130 < food.x < 160 and 200 < food.y < 230:
-        return True
-    elif 160 < food.x < 190 and 200 < food.y < 230:
-        return True
-    elif 190 < food.x < 220 and 200 < food.y < 230:
-        return True
-    elif 220 < food.x < 250 and 200 < food.y < 230:
-        return True
-    elif 250 < food.x < 280 and 200 < food.y < 230:
-        return True
-    elif 280 < food.x < 310 and 200 < food.y < 230:
-        return True
-    elif 310 < food.x < 330 and 200 < food.y < 240:
-        return True
-    elif 330 < food.x < 350 and 200 < food.y < 240:
-        return True
-    elif 360 < food.x < 390 and 200 < food.y < 230:
-        return True
-    elif 390 < food.x < 420 and 200 < food.y < 230:
-        return True
-    elif 420 < food.x < 450 and 200 < food.y < 230:
-        return True
-    elif 450 < food.x < 480 and 200 < food.y < 230:
-        return True
-    elif 480 < food.x < 510 and 200 < food.y < 230:
-        return True
-    elif 510 < food.x < 540 and 200 < food.y < 230:
-        return True
-    elif 540 < food.x < 570 and 200 < food.y < 230:
-        return True
-    elif 570 < food.x < 600 and 200 < food.y < 230:
-        return True
-    elif 600 < food.x < 630 and 200 < food.y < 230:
-        return True
-    elif 630 < food.x < 660 and 200 < food.y < 230:
-        return True
-    elif 660 < food.x < 690 and 200 < food.y < 230:
-        return True
-    elif 130 < food.x < 160 and 400 < food.y < 430:
-        return True
-    elif 160 < food.x < 190 and 400 < food.y < 430:
-        return True
-    elif 190 < food.x < 220 and 400 < food.y < 430:
-        return True
-    elif 220 < food.x < 250 and 400 < food.y < 430:
-        return True
-    elif 250 < food.x < 280 and 400 < food.y < 430:
-        return True
-    elif 280 < food.x < 310 and 400 < food.y < 430:
-        return True
-    elif 310 < food.x < 330 and 400 < food.y < 240:
-        return True
-    elif 330 < food.x < 350 and 400 < food.y < 240:
-        return True
-    elif 360 < food.x < 390 and 400 < food.y < 430:
-        return True
-    elif 390 < food.x < 420 and 400 < food.y < 430:
-        return True
-    elif 420 < food.x < 450 and 400 < food.y < 430:
-        return True
-    elif 450 < food.x < 480 and 400 < food.y < 430:
-        return True
-    elif 480 < food.x < 510 and 400 < food.y < 430:
-        return True
-    elif 510 < food.x < 540 and 400 < food.y < 430:
-        return True
-    elif 540 < food.x < 570 and 400 < food.y < 430:
-        return True
-    elif 570 < food.x < 600 and 400 < food.y < 430:
-        return True
-    elif 600 < food.x < 630 and 400 < food.y < 430:
-        return True
-    elif 630 < food.x < 660 and 400 < food.y < 430:
-        return True
-    elif 660 < food.x < 690 and 400 < food.y < 430:
-        return True
-    elif 130 < food.x < 160 and 600 < food.y < 630:
-        return True
-    elif 160 < food.x < 190 and 600 < food.y < 630:
-        return True
-    elif 190 < food.x < 220 and 600 < food.y < 630:
-        return True
-    elif 220 < food.x < 250 and 600 < food.y < 630:
-        return True
-    elif 250 < food.x < 280 and 600 < food.y < 630:
-        return True
-    elif 280 < food.x < 310 and 600 < food.y < 630:
-        return True
-    elif 310 < food.x < 330 and 600 < food.y < 240:
-        return True
-    elif 330 < food.x < 350 and 600 < food.y < 240:
-        return True
-    elif 360 < food.x < 390 and 600 < food.y < 630:
-        return True
-    elif 390 < food.x < 420 and 600 < food.y < 630:
-        return True
-    elif 420 < food.x < 450 and 600 < food.y < 630:
-        return True
-    elif 450 < food.x < 480 and 600 < food.y < 630:
-        return True
-    elif 480 < food.x < 510 and 600 < food.y < 630:
-        return True
-    elif 510 < food.x < 540 and 600 < food.y < 630:
-        return True
-    elif 540 < food.x < 570 and 600 < food.y < 630:
-        return True
-    elif 570 < food.x < 600 and 600 < food.y < 630:
-        return True
-    elif 600 < food.x < 630 and 600 < food.y < 630:
-        return True
-    elif 630 < food.x < 660 and 600 < food.y < 630:
-        return True
-    elif 660 < food.x < 690 and 600 < food.y < 630:
-        return True
-    else:
-        return False
-
-
 def game_over():
     pygame.mixer.music.stop()
     end.play()
@@ -254,12 +139,17 @@ def collision_with_barrier():
         return True
     elif 520 < snake.elements[0][0] < 550 and 200 < snake.elements[0][1] < 230:
         return True
+    elif 550 < snake.elements[0][0] < 580 and 200 < snake.elements[0][1] < 230:
+        return True
     elif 580 < snake.elements[0][0] < 610 and 200 < snake.elements[0][1] < 230:
         return True
     elif 610 < snake.elements[0][0] < 640 and 200 < snake.elements[0][1] < 230:
         return True
     elif 640 < snake.elements[0][0] < 670 and 200 < snake.elements[0][1] < 230:
         return True
+    elif 670 < snake.elements[0][0] < 700 and 200 < snake.elements[0][1] < 230:
+        return True
+
     elif 130 < snake.elements[0][0] < 160 and 400 < snake.elements[0][1] < 430:
         return True
     elif 160 < snake.elements[0][0] < 190 and 400 < snake.elements[0][1] < 430:
@@ -296,6 +186,9 @@ def collision_with_barrier():
         return True
     elif 640 < snake.elements[0][0] < 670 and 400 < snake.elements[0][1] < 430:
         return True
+    elif 670 < snake.elements[0][0] < 700 and 400 < snake.elements[0][1] < 430:
+        return True
+
     elif 130 < snake.elements[0][0] < 160 and 600 < snake.elements[0][1] < 630:
         return True
     elif 160 < snake.elements[0][0] < 190 and 600 < snake.elements[0][1] < 630:
@@ -324,12 +217,17 @@ def collision_with_barrier():
         return True
     elif 520 < snake.elements[0][0] < 550 and 600 < snake.elements[0][1] < 630:
         return True
+    elif 550 < snake.elements[0][0] < 580 and 600 < snake.elements[0][1] < 630:
+        return True
     elif 580 < snake.elements[0][0] < 610 and 600 < snake.elements[0][1] < 630:
         return True
     elif 610 < snake.elements[0][0] < 640 and 600 < snake.elements[0][1] < 630:
         return True
     elif 640 < snake.elements[0][0] < 670 and 600 < snake.elements[0][1] < 630:
         return True
+    elif 670 < snake.elements[0][0] < 700 and 600 < snake.elements[0][1] < 630:
+        return True
+
     else:
         return False
 
@@ -366,6 +264,7 @@ def draw_barrier():
     WIN.blit(WALL, (610, 200))
     WIN.blit(WALL, (640, 200))
     WIN.blit(WALL, (670, 200))
+
     WIN.blit(WALL, (130, 400))
     WIN.blit(WALL, (160, 400))
     WIN.blit(WALL, (190, 400))
@@ -385,6 +284,7 @@ def draw_barrier():
     WIN.blit(WALL, (610, 400))
     WIN.blit(WALL, (640, 400))
     WIN.blit(WALL, (670, 400))
+
     WIN.blit(WALL, (130, 600))
     WIN.blit(WALL, (160, 600))
     WIN.blit(WALL, (190, 600))
@@ -410,10 +310,6 @@ def draw_walls():
     for x in range(32, WIDTH - 32, 32):
         WIN.blit(WALL, (x, 0))
         WIN.blit(WALL, (x, HEIGHT - 32))
-    # for x in range(100 + 32 + 32, WIDTH - 32 - 100 - 32, 32):
-    #     WIN.blit(WALL, (x, 150))
-    #     WIN.blit(WALL, (x, 379))
-    #     WIN.blit(WALL, (x, HEIGHT - 32 - 118 - 32))
     for y in range(0, HEIGHT, 32):
         WIN.blit(WALL, (0, y))
         WIN.blit(WALL, (WIDTH - 32, y))
@@ -424,7 +320,7 @@ def collision_with_food():
             (food.y in range(snake.elements[0][1] - 35, snake.elements[0][1]))):
         snake.is_add = True
         food.x = random.randint(32, WIDTH - 32 - 35)
-        food.y = random.randint(32, HEIGHT - 32 - 35)
+        food.y = random.choice(areasy)
         eaten.play()
 
 
@@ -446,11 +342,9 @@ def draw_window():
 
     collision_with_food()
 
-    if in_wall() == False:
-        food.draw()
+    food.draw()
 
     show_score(40, 35, snake.score)
-    print(food.x, food.y)
 
 
 def movement():

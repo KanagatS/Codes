@@ -59,8 +59,8 @@ def draw_menu(single, multi):
     WIN.fill((128, 128, 128))
 
     CHOOSE_MODE = FONT.render('GAME MODE', True, BLACK)
-    SINGLEPLAYER = FONT_small.render('SINGLE', True, BLACK)
-    MULTIPLAYER = FONT_small.render('MULTI', True, BLACK)
+    SINGLEPLAYER = FONT_small.render('SINGLE', True, WHITE)
+    MULTIPLAYER = FONT_small.render('MULTI', True, WHITE)
     CHOOSE_LEVEL = FONT.render('LEVEL', True, BLACK)
 
     WIN.blit(CHOOSE_MODE, (230, 130))
