@@ -1,6 +1,8 @@
 s = input()
+
 x1, y1 = map(int, input().split())
 x, y = 0, 0
+
 for i in range(len(s)):
     if x1 == x and y1 == y:
         print('Passed')
