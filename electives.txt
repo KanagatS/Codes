@@ -1,0 +1,34 @@
+3D Character Design (Character Modeling in 3D)
+Advanced Networking and security
+Advanced cloud computing
+Android Advanced
+Augmented and Virtual Reality
+Backend for High Loaded Enviroment
+Cloud Application Development
+Cybersecurity Management: Enterprise, National and International Level
+Data Mining
+Deep Learning
+Enterprise Architecture
+Ethical Hacking
+Game development and design
+Golang application development
+Graph theory and applications
+IT Audit
+Industrial Artificial Intelligence
+Industrial Robot Operations
+Internet of Things and Embedded Systems
+Introduction to Artificial Intelligence
+Introduction to DevOps
+Introduction to Digital Forensics
+Itroduction to development of digital microcircuit technology
+JS Framework. Angular
+JS Framework. React
+Networks and security
+Optimal Control of Automation Objects
+PLC Robot Control
+SCADA systems and Industrial networks
+Server engineering and configuration implementation
+Smart Manufacturing
+Supervisiory control Fundamentals
+Technological Entrepreneurship & Startups
+iOS Advanced

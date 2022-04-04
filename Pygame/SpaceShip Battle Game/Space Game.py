@@ -2,7 +2,7 @@ import pygame
 pygame.font.init()
 
 # Article of Program
-pygame.display.set_caption('Just Name')
+pygame.display.set_caption('Just Name')``
 
 # Parametres of Display
 WIDTH, HEIGHT = 900, 500
